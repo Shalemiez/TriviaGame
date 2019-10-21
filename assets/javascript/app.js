@@ -33,7 +33,7 @@ var questions = [
     },
     {
         question: "What's half of quarter of 8000?",
-        answer: ["1000", "2000", " 3000", "4000"],
+        answer: ["1000", "2000", "3000", "4000"],
         correctAns: "1000"
     },
     {
@@ -79,7 +79,7 @@ function displayQuestions() {
         console.log(questions[q].question);
         newForm.append(newQuestion);
         for (var i = 0; i < questions[q].answer.length; i++) {
-            newAnswer = $(`<input type='radio' class='ansButton' name='${q}'  value='test'>` + " " + questions[q].answer[i] + `<br>`)
+            newAnswer = $(`<input type='radio' class='ansButton' name='${q}'  value=${questions[q].answer[i]} >${questions[q].answer[i]} <br>`)
             console.log(questions[q].answer[i]);
             newForm.append(newAnswer);
         }
@@ -87,9 +87,9 @@ function displayQuestions() {
     }
     quiz_area.append(newForm);
 }
-$(document).on("click", ".ansButton", function (event) {
+$(document).on("click", ".ansButton", function () {
 
-    if ($(event.target).attr("name") == questions.correctAns) {
+    if ($(this).attr(newAnswer.val()) == questions.correctAns) {
         correct++;
     }
     else {
