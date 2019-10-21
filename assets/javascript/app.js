@@ -87,9 +87,9 @@ function displayQuestions() {
     }
     quiz_area.append(newForm);
 }
-$(document).on("click", ".ansButton", function () {
+$(document).on("click", ".ansButton", function (event) {
 
-    if ($(this).attr(newAnswer.val()) == questions.correctAns) {
+    if ($(event.target).attr(newAnswer.val()) != questions.correctAns) {
         correct++;
     }
     else {
